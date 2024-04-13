@@ -1736,6 +1736,10 @@ PrefabInstance:
       propertyPath: maxInteractionDistance
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7858828870355576739, guid: 9dac6ef2de8728f48a9ac160f2d3966a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ddced688b307d564c98f76f2d7b42d62, type: 3}
     - target: {fileID: 8643793878643884015, guid: 9dac6ef2de8728f48a9ac160f2d3966a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.7453946
