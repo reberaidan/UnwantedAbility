@@ -8,6 +8,7 @@ public class InteractContainer : MonoBehaviour
     [SerializeField] private string dialogue;
     [SerializeField] private Mesh changeMesh;
     [SerializeField] private roomManager roomManager;
+    [SerializeField] private Sprite expectedSprite;
     public bool completed;
     
     public string getDialogue()
@@ -18,6 +19,11 @@ public class InteractContainer : MonoBehaviour
     public GameObject getExpected()
     {
         return expectedObject;
+    }
+
+    public Sprite getExpectedSprite()
+    {
+        return expectedSprite;
     }
 
     public void changeState()

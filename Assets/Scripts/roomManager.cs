@@ -9,7 +9,7 @@ public class roomManager : MonoBehaviour
     [SerializeField] private List<GameObject> objectives;
     private void finishRoom()
     {
-        SceneManager.LoadScene(0);
+        //SceneManager.LoadScene(0);
     }
 
     public void submitObjective(GameObject objective)

@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] TextMeshProUGUI descriptionBox;
 	[SerializeField] Animator descBoxAnim;
 	private bool inDialogue = false;
+	[SerializeField] InventoryOverlay inventoryUI;
 
 	private List<GameObject> inventory = new List<GameObject> ();
 
@@ -58,6 +59,7 @@ public class PlayerController : MonoBehaviour
 			Debug.DrawRay(interactTrigger.position, direction, Color.green, 60);
 			if (Physics.Raycast(ray, out RaycastHit hit, maxInteractionDistance, layersToHit))
 			{
+				//generic item description
 				if (hit.collider.gameObject.CompareTag("item"))
 				{
 					var hitScript = hit.collider.gameObject.GetComponent<itemDescription>();
@@ -67,6 +69,7 @@ public class PlayerController : MonoBehaviour
 					inDialogue = true;
 					stopMovement();
 				}
+				// if item needs to be picked up.
 				else if (hit.collider.gameObject.CompareTag("pickup"))
 				{
 					var hitScript = hit.collider.gameObject.GetComponent<itemDescription>();
@@ -78,6 +81,7 @@ public class PlayerController : MonoBehaviour
 					pickup = true;
 					stopMovement();
 					inventory.Add(hit.collider.gameObject);
+					inventoryUI.addToInventory(hitScript.getInventoryImage());
 					hit.collider.gameObject.SetActive(false);
 				}
 				else if (hit.collider.gameObject.CompareTag("container"))
@@ -94,6 +98,7 @@ public class PlayerController : MonoBehaviour
 						descBoxAnim.SetBool("DepositItem", true);
 						containerDeposit = true;
 						hitScript.changeState();
+						inventoryUI.removeInventory(hitScript.getExpectedSprite());
 					}
 				}
 			}
