@@ -6,6 +6,7 @@ TagManager:
   tags:
   - item
   - pickup
+  - container
   layers:
   - Default
   - TransparentFX

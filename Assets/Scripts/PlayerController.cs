@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
 
 	[SerializeField] Camera playerCamera;
 	private bool pickup;
+	private bool containerDeposit;
 
 	private void Awake()
 	{
@@ -51,7 +52,7 @@ public class PlayerController : MonoBehaviour
 	}
 	private void DoSomething(InputAction.CallbackContext context)
 	{
-		if (!inDialogue && !pickup)
+		if (!inDialogue && !pickup && !containerDeposit)
 		{
 			ray = new Ray(interactTrigger.position, direction);
 			Debug.DrawRay(interactTrigger.position, direction, Color.green, 60);
@@ -59,15 +60,17 @@ public class PlayerController : MonoBehaviour
 			{
 				if (hit.collider.gameObject.CompareTag("item"))
 				{
-					descriptionBox.text = hit.collider.gameObject.GetComponent<itemDescription>().getDescription();
+					var hitScript = hit.collider.gameObject.GetComponent<itemDescription>();
+					descriptionBox.text = hitScript.getDescription();
 					descBoxAnim.SetTrigger("TriggerText");
 					descBoxAnim.SetBool("Dialogue", true);
 					inDialogue = true;
 					stopMovement();
 				}
-				if (hit.collider.gameObject.CompareTag("pickup"))
+				else if (hit.collider.gameObject.CompareTag("pickup"))
 				{
-					descriptionBox.text = hit.collider.gameObject.GetComponent<itemDescription>().getDescription();
+					var hitScript = hit.collider.gameObject.GetComponent<itemDescription>();
+					descriptionBox.text = hitScript.getDescription();
 					descBoxAnim.SetTrigger("TriggerText");
 					descBoxAnim.SetBool("Dialogue", true);
 					descBoxAnim.SetBool("PickUp", true);
@@ -77,6 +80,22 @@ public class PlayerController : MonoBehaviour
 					inventory.Add(hit.collider.gameObject);
 					hit.collider.gameObject.SetActive(false);
 				}
+				else if (hit.collider.gameObject.CompareTag("container"))
+				{
+					var hitScript = hit.collider.gameObject.GetComponent<InteractContainer>();
+					descriptionBox.text = hitScript.getDialogue();
+					descBoxAnim.SetTrigger("TriggerText");
+					descBoxAnim.SetBool("Dialogue", true);
+					inDialogue = true;
+					stopMovement();
+					if (inventory.Contains(hitScript.getExpected()))
+					{
+						inventory.Remove(hitScript.getExpected());
+						descBoxAnim.SetBool("DepositItem", true);
+						containerDeposit = true;
+						hitScript.changeState();
+					}
+				}
 			}
 		}
 		else
@@ -85,12 +104,27 @@ public class PlayerController : MonoBehaviour
 			{
 				descBoxAnim.SetBool("Dialogue", false);
 				inDialogue = false;
-				startMovement();
+				if (!pickup && !containerDeposit)
+				{
+					startMovement();
+				}
 			}
 			else if(pickup){
 				descBoxAnim.SetBool("PickUp", false);
 				pickup = false;
-				startMovement();
+				if(!containerDeposit && !inDialogue)
+				{
+					startMovement();
+				}
+			}
+			else if (containerDeposit)
+			{
+				descBoxAnim.SetBool("DepositItem", false);
+				containerDeposit = false;
+				if(!pickup && !inDialogue)
+				{
+					startMovement();
+				}
 			}
 
 		}
