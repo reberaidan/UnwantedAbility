@@ -25,7 +25,10 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] Animator descBoxAnim;
 	private bool inDialogue = false;
 
+	private List<GameObject> inventory = new List<GameObject> ();
+
 	[SerializeField] Camera playerCamera;
+	private bool pickup;
 
 	private void Awake()
 	{
@@ -48,7 +51,7 @@ public class PlayerController : MonoBehaviour
 	}
 	private void DoSomething(InputAction.CallbackContext context)
 	{
-		if (!inDialogue)
+		if (!inDialogue && !pickup)
 		{
 			ray = new Ray(interactTrigger.position, direction);
 			Debug.DrawRay(interactTrigger.position, direction, Color.green, 60);
@@ -62,13 +65,34 @@ public class PlayerController : MonoBehaviour
 					inDialogue = true;
 					stopMovement();
 				}
+				if (hit.collider.gameObject.CompareTag("pickup"))
+				{
+					descriptionBox.text = hit.collider.gameObject.GetComponent<itemDescription>().getDescription();
+					descBoxAnim.SetTrigger("TriggerText");
+					descBoxAnim.SetBool("Dialogue", true);
+					descBoxAnim.SetBool("PickUp", true);
+					inDialogue = true;
+					pickup = true;
+					stopMovement();
+					inventory.Add(hit.collider.gameObject);
+					hit.collider.gameObject.SetActive(false);
+				}
 			}
 		}
 		else
 		{
-			descBoxAnim.SetBool("Dialogue", false);
-			inDialogue = false;
-			startMovement();
+			if (inDialogue)
+			{
+				descBoxAnim.SetBool("Dialogue", false);
+				inDialogue = false;
+				startMovement();
+			}
+			else if(pickup){
+				descBoxAnim.SetBool("PickUp", false);
+				pickup = false;
+				startMovement();
+			}
+
 		}
 
 	}
@@ -151,8 +175,7 @@ public class PlayerController : MonoBehaviour
 
 	private void startMovement()
 	{
-		rb.constraints = RigidbodyConstraints.None;
-		rb.constraints = RigidbodyConstraints.FreezeRotation;
 		rb.constraints = RigidbodyConstraints.FreezePositionY;
+		rb.freezeRotation = true;
 	}
 }
