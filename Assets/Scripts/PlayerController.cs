@@ -31,10 +31,12 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] Camera playerCamera;
 	private bool pickup;
 	private bool containerDeposit;
+	private Animator playerAnimator;
 
 	private void Awake()
 	{
 		rb = this.GetComponent<Rigidbody>();
+		playerAnimator = this.GetComponent<Animator> ();
 		actionAsset = new IsometricActionAsset();
 	}
 
@@ -169,27 +171,34 @@ public class PlayerController : MonoBehaviour
 				if (move.ReadValue<Vector2>().x < 0)
 				{
 					direction = Vector3.left;
+					playerAnimator.SetTrigger("Left");
 				}
 				else
 				{
 					direction = Vector3.right;
+					playerAnimator.SetTrigger("Right");
 				}
 			}
 			else
 			{
 				if (move.ReadValue<Vector2>().y < 0)
 				{
+					//different because of world space direction
 					direction = Vector3.back;
+					playerAnimator.SetTrigger("Front");
 				}
 				else
 				{
+					//different because of world space direction
 					direction = Vector3.forward;
+					playerAnimator.SetTrigger("Back");
 				}
 			}
 		}
 		else
 		{
 			rb.angularVelocity = Vector3.zero;
+			playerAnimator.SetTrigger("Idle");
 		}
 	}
 

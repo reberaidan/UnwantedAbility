@@ -5,7 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class roomManager : MonoBehaviour
 {
-    public bool roomComplete = false;
+	private void Awake()
+	{
+        GameObject.Find("Floor").GetComponent<CreateFloor>().generateFloor();
+	}
+
+	public bool roomComplete = false;
     [SerializeField] private List<GameObject> objectives;
     private void finishRoom()
     {
