@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -436,7 +436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3092bee0460ea3c459d60fa4adfbc314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: It the latest book from my favorite series. I remember getting this
+  description: Itsthe latest book from my favorite series. I remember getting this
     book from a friend, but I don't remember what happened between us.
   inventoryImage: {fileID: -5602561473504404336, guid: 2ad4bdbdf9de7c840b38e53e8e9da95f, type: 3}
   isObjective: 0
@@ -1114,7 +1114,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 289634001}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38268346, y: 0.000000016047146, z: -0.000000006646945, w: 0.92387956}
+  m_LocalRotation: {x: 0.38268346, y: -0.000000015896623, z: 0.0000000065845964, w: 0.92387956}
   m_LocalPosition: {x: 3.62, y: 4.527, z: -8.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1948,9 +1948,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3092bee0460ea3c459d60fa4adfbc314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: It makes me sad to know that baby sea turtles are unlikely to make
-    it out to the ocean due to predators on the beach. Despite that they are truly
-    a beauty in nature.
+  description: My dad gave me this poster and said I could be anything I put my mind
+    to...I hope I can see him soon
   inventoryImage: {fileID: 21300000, guid: 9107d236c1b5b6844bbf17b91bdafcf0, type: 3}
   isObjective: 0
   tunnelVision: 0
@@ -2016,7 +2015,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 9107d236c1b5b6844bbf17b91bdafcf0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5f248a722e1793f4cb799e498307457f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4661,8 +4660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3092bee0460ea3c459d60fa4adfbc314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: It's wild to know that goldfish can actually grow to be quite large.
-    It's sad many of them don't get that chance though.
+  description: When I grow up, I hope to be an astronaut or anything important honestly
   inventoryImage: {fileID: 21300000, guid: 48acbb74183b6c344ac388ad7beebd8d, type: 3}
   isObjective: 0
   tunnelVision: 0
@@ -4728,7 +4726,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 48acbb74183b6c344ac388ad7beebd8d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0904ba4287b4f08409bc71e65cca5829, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5203,7 +5201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2021508840}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38268346, y: 0.000000016047146, z: -0.000000006646945, w: 0.92387956}
+  m_LocalRotation: {x: 0.38268346, y: -0.000000015896623, z: 0.0000000065845964, w: 0.92387956}
   m_LocalPosition: {x: 3.62, y: 4.527, z: -8.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

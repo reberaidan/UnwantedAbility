@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -670,7 +670,7 @@ MonoBehaviour:
   roomComplete: 0
   nextScene: 3
   roomManager: {fileID: 0}
-  text: I need to get my books picked up before I start my lectures.
+  text: I need to get my school supplies collected before I can head out!
 --- !u!65 &244155165
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1372,11 +1372,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3092bee0460ea3c459d60fa4adfbc314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: Sea turtles are really cool. I remember watching a movie and they
-    just get to swim around all day and travel the world. I wish I could be a sea
-    turtle.
+  description: A great reminder for when I forget to take my meds to start my day
+    off, they seem to help with the memory loss and fuzziness that I used to have.
   inventoryImage: {fileID: 21300000, guid: 9107d236c1b5b6844bbf17b91bdafcf0, type: 3}
-  isObjective: 0
+  isObjective: 1
   tunnelVision: 0
 --- !u!65 &352100512
 BoxCollider:
@@ -1460,7 +1459,7 @@ Transform:
   m_GameObject: {fileID: 352100510}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.72, y: 2.94, z: -4.493}
+  m_LocalPosition: {x: 2.46, y: 2.94, z: -4.493}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -3182,9 +3181,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3092bee0460ea3c459d60fa4adfbc314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: It's a picture of all my friends. I'm happy that they are able to
-    keep me grounded and reassure me no matter what. It really is a blessing to have
-    them.
+  description: It's a picture of all my friends from our highschool graduation, I
+    wish I could recall this memory since we seem to be having such a great time...at
+    least I have this photo to remember it
   inventoryImage: {fileID: 4630334939510069323, guid: a1fd562511a504b44ab450799f5f369c, type: 3}
   isObjective: 0
   tunnelVision: 0
@@ -3889,8 +3888,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3092bee0460ea3c459d60fa4adfbc314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: I never knew that humpback whales and killer whales had so much conflict.
-    I heard tensions were rising out in the ocean.
+  description: One of my friends bought me this for my birthday last year, it still
+    brings me a nice warm feeling
   inventoryImage: {fileID: 21300000, guid: 5f9f668faca1a2f4dbb4d072fe45b2d9, type: 3}
   isObjective: 0
   tunnelVision: 0
@@ -4488,8 +4487,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3092bee0460ea3c459d60fa4adfbc314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: If my family taught me anything, sometimes you have to have a sting
-    in order to keep going.
+  description: A nice little cow painting my mom forced onto me so I could "remember
+    the countryside and never forget where I'm from"...wish I could forget
   inventoryImage: {fileID: 21300000, guid: e0ee526e8261a9340bb779d86104d7d4, type: 3}
   isObjective: 0
   tunnelVision: 0
@@ -4555,7 +4554,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: e0ee526e8261a9340bb779d86104d7d4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c3aa5b44100e12244be6d277de70e038, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5161,7 +5160,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2021508840}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38268346, y: 0.000000015906005, z: -0.000000006588483, w: 0.92387956}
+  m_LocalRotation: {x: 0.38268346, y: -0.000000015896623, z: 0.0000000065845964, w: 0.92387956}
   m_LocalPosition: {x: -0.35, y: 4.527, z: -9.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5363,7 +5362,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2025049167}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38268346, y: 0.000000015906005, z: -0.000000006588483, w: 0.92387956}
+  m_LocalRotation: {x: 0.38268346, y: -0.000000015896623, z: 0.0000000065845964, w: 0.92387956}
   m_LocalPosition: {x: -0.35, y: 4.527, z: -9.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
