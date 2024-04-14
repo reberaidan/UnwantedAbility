@@ -214,6 +214,11 @@ public class PlayerController : MonoBehaviour
 		actionAsset.Player.Move.Disable();
 	}
 
+	public void deactivateInteraction()
+	{
+		actionAsset.Player.Interact.Disable();
+	}
+
 	private void FixedUpdate()
 	{
 		forceDirection += move.ReadValue<Vector2>().x * GetCameraRight(playerCamera) * movementForce;

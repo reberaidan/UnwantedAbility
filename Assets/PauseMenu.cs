@@ -6,10 +6,11 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private PlayerController playerController;
+    [SerializeField] private bool startState;
 
 	private void Start()
 	{
-		gameObject.SetActive(false);
+		gameObject.SetActive(startState);
 	}
 	// Start is called before the first frame update
 	public void Resume()
