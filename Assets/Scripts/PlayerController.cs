@@ -23,10 +23,11 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] float maxInteractionDistance;
 	public LayerMask layersToHit;
 	[SerializeField] TextMeshProUGUI descriptionBox;
-	[SerializeField] Animator descBoxAnim;
+	[SerializeField] public Animator descBoxAnim;
 	private bool inDialogue = false;
 	[SerializeField] InventoryOverlay inventoryUI;
 	[SerializeField] GameObject pauseMenu;
+	[SerializeField] roomManager roomManager;
 
 	private List<GameObject> inventory = new List<GameObject> ();
 
@@ -88,7 +89,8 @@ public class PlayerController : MonoBehaviour
 
 	private void DoSomething(InputAction.CallbackContext context)
 	{
-		if (!inDialogue && !pickup && !containerDeposit && !paused)
+		
+		if (!inDialogue && !pickup && !containerDeposit && !paused )
 		{
 			ray = new Ray(interactTrigger.position, direction);
 			Debug.DrawRay(interactTrigger.position, direction * maxInteractionDistance, Color.green, 60);
@@ -117,6 +119,10 @@ public class PlayerController : MonoBehaviour
 					stopMovement();
 					inventory.Add(hit.collider.gameObject);
 					inventoryUI.addToInventory(hitScript.getInventoryImage());
+					if (hitScript.getObjective())
+					{
+						roomManager.submitPickupObjective(hit.collider.gameObject);
+					}
 					hit.collider.gameObject.SetActive(false);
 				}
 				else if (hit.collider.gameObject.CompareTag("container"))
@@ -141,9 +147,11 @@ public class PlayerController : MonoBehaviour
 						}
 
 					}
+					print("items deposited");
 				}
 				else if (hit.collider.gameObject.CompareTag("door"))
 				{
+					print("interacting with door");
 					var hitScript = hit.collider.gameObject.GetComponent<Door>();
 					if (!hitScript.canLeave())
 					{
@@ -153,13 +161,16 @@ public class PlayerController : MonoBehaviour
 						inDialogue = true;
 						stopMovement();
 					}
+					else { roomManager.startOutro(); }
 				}
 			}
 		}
 		else
 		{
+			
 			if(!paused)
 			{
+				print("trying to get out of dialogues");
 				if (inDialogue)
 				{
 					descBoxAnim.SetBool("Dialogue", false);
@@ -167,6 +178,10 @@ public class PlayerController : MonoBehaviour
 					if (!pickup && !containerDeposit)
 					{
 						startMovement();
+					}
+					if (roomManager.outroStarted)
+					{
+						roomManager.outroDialogue();
 					}
 				}
 				else if(pickup){
@@ -191,6 +206,12 @@ public class PlayerController : MonoBehaviour
 
 		}
 
+	}
+
+	public void putInDialogue()
+	{
+		inDialogue = true;
+		actionAsset.Player.Move.Disable();
 	}
 
 	private void FixedUpdate()
@@ -291,5 +312,6 @@ public class PlayerController : MonoBehaviour
 	{
 		rb.constraints = RigidbodyConstraints.FreezePositionY;
 		rb.freezeRotation = true;
+		actionAsset.Player.Move.Enable();
 	}
 }

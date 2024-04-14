@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class InteractContainer : MonoBehaviour
 {
     [SerializeField] private List<GameObject> expectedObject;
     [SerializeField] private string dialogue;
+    [SerializeField] private string stashText;
     [SerializeField] private Mesh changeMesh;
     [SerializeField] private roomManager roomManager;
+    [SerializeField] private TextMeshProUGUI textMeshProUGUI;
     private List<Sprite> expectedSprite = new List<Sprite>();
     public bool completed;
 
@@ -37,6 +40,7 @@ public class InteractContainer : MonoBehaviour
         }
         
         expectedObject = expectedObject.Except(list).ToList();
+        changePickupText(list);
         return list;
     }
 
@@ -56,6 +60,22 @@ public class InteractContainer : MonoBehaviour
 
 		return list;
 	}
+
+    private void changePickupText(List<GameObject> list)
+    {
+        string changeText = stashText;
+        
+
+        foreach (var item in list)
+        {
+            changeText += item.name;
+            if(item != list[list.Count - 1])
+            {
+                changeText += ", ";
+            }
+        }
+        textMeshProUGUI.text = changeText;
+    }
 /*
     public void removeExpected(List<GameObject> list)
     {
@@ -83,6 +103,7 @@ public class InteractContainer : MonoBehaviour
     {
         if(expectedObject.Count == 0)
         {
+            print("changing state");
             completed = true;
             roomManager.submitObjective(gameObject);
         }

@@ -7,13 +7,16 @@ public class Door : MonoBehaviour
 {
     public bool roomComplete = false;
     [SerializeField] private int nextScene;
+    [SerializeField] private roomManager roomManager;
     public string text;
     public bool canLeave()
     {
-        if (roomComplete)
-        {
-            SceneManager.LoadScene(nextScene);
-        }
+        
         return roomComplete;
     }
+
+    public void leave()
+    {
+	
+	}
 }

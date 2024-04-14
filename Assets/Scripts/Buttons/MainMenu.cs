@@ -5,20 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    [SerializeField] private Animator animator;
     public void playGame()
     {
+        StartCoroutine("loadLevel");
+    }
+
+    private IEnumerator loadLevel()
+    {
+        animator.SetTrigger("fade");
+        yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(1);
     }
 

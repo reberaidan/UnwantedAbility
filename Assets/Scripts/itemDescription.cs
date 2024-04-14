@@ -6,6 +6,7 @@ public class itemDescription : MonoBehaviour
 {
 	[SerializeField] private string description;
 	[SerializeField] private Sprite inventoryImage;
+	[SerializeField] private bool isObjective;
 
 	public string getDescription()
 	{
@@ -15,5 +16,10 @@ public class itemDescription : MonoBehaviour
 	public Sprite getInventoryImage()
 	{
 		return inventoryImage;
+	}
+
+	public bool getObjective()
+	{
+		return isObjective;
 	}
 }

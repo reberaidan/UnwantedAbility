@@ -157,6 +157,7 @@ MonoBehaviour:
   description: I learned that whales are like me, but they decided to go into the
     ocean a long time ago. I wonder if they like the same food that I do.
   inventoryImage: {fileID: 21300000, guid: 5f9f668faca1a2f4dbb4d072fe45b2d9, type: 3}
+  isObjective: 0
 --- !u!65 &7038534
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -218,7 +219,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 5f9f668faca1a2f4dbb4d072fe45b2d9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -313,7 +314,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -4107886674696930813, guid: cde57de6ec17c31499b0f1dd7a4c2c6e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -380,6 +381,7 @@ MonoBehaviour:
     just get to swim around all day and travel the world. I wish I could be a sea
     turtle.
   inventoryImage: {fileID: 21300000, guid: 9107d236c1b5b6844bbf17b91bdafcf0, type: 3}
+  isObjective: 0
 --- !u!65 &91837336
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -441,7 +443,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 9107d236c1b5b6844bbf17b91bdafcf0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -609,7 +611,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -4107886674696930813, guid: cde57de6ec17c31499b0f1dd7a4c2c6e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -762,12 +764,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expectedObject:
-  - {fileID: 2081044319}
   - {fileID: 1135980297}
   - {fileID: 1777681553}
   dialogue: This is where I need to put all of my toys.
+  stashText: 'You put the following toys in your toy box: '
   changeMesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   roomManager: {fileID: 1666209813}
+  textMeshProUGUI: {fileID: 1577790201}
   completed: 0
 --- !u!65 &152550484
 BoxCollider:
@@ -1058,7 +1061,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -4107886674696930813, guid: cde57de6ec17c31499b0f1dd7a4c2c6e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1248,7 +1251,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -4107886674696930813, guid: cde57de6ec17c31499b0f1dd7a4c2c6e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1332,7 +1335,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -4107886674696930813, guid: cde57de6ec17c31499b0f1dd7a4c2c6e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1359,6 +1362,90 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1273712248}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1 &686833975
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 686833977}
+  - component: {fileID: 686833976}
+  m_Layer: 0
+  m_Name: GrayFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &686833976
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686833975}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.68235296}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &686833977
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686833975}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 1.83, y: 0.77, z: -16.85}
+  m_LocalScale: {x: 9.567294, y: 9.567294, z: 9.567294}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &743175126
 GameObject:
   m_ObjectHideFlags: 0
@@ -1416,7 +1503,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -4107886674696930813, guid: cde57de6ec17c31499b0f1dd7a4c2c6e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1527,6 +1614,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &913785779 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5036332827957655237, guid: 95d47506ebfce9543b8d3b8c32871b12, type: 3}
+  m_PrefabInstance: {fileID: 1577790200}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &924282953
 GameObject:
   m_ObjectHideFlags: 0
@@ -1689,7 +1781,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -4107886674696930813, guid: cde57de6ec17c31499b0f1dd7a4c2c6e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1773,7 +1865,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -4107886674696930813, guid: cde57de6ec17c31499b0f1dd7a4c2c6e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1857,7 +1949,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -4107886674696930813, guid: cde57de6ec17c31499b0f1dd7a4c2c6e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2092,6 +2184,7 @@ MonoBehaviour:
   description: It's always fun to play with you Mr. Duck. You always make me laugh
     when you go "Quack Quack!" You make bath time so much more enjoyable!
   inventoryImage: {fileID: 21300000, guid: 07654158e5ea04043972ba43d9b11379, type: 3}
+  isObjective: 0
 --- !u!54 &1135980301
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2191,7 +2284,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -4107886674696930813, guid: cde57de6ec17c31499b0f1dd7a4c2c6e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2371,7 +2464,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -4107886674696930813, guid: cde57de6ec17c31499b0f1dd7a4c2c6e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2462,7 +2555,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1346286724}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3826835, y: -0.00000002248122, z: 0.000000009312028, w: 0.92387956}
+  m_LocalRotation: {x: 0.3826835, y: 0.000000022481217, z: -0.000000009312026, w: 0.92387956}
   m_LocalPosition: {x: -0.27, y: 6.527, z: -10.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2527,7 +2620,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -4107886674696930813, guid: cde57de6ec17c31499b0f1dd7a4c2c6e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2627,6 +2720,7 @@ MonoBehaviour:
   description: Apparently jellyfish are not very good at holding conversation. All
     they do is float around all day, not caring about anything else around themself.
   inventoryImage: {fileID: 21300000, guid: e0ee526e8261a9340bb779d86104d7d4, type: 3}
+  isObjective: 0
 --- !u!65 &1492855266
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2688,7 +2782,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: e0ee526e8261a9340bb779d86104d7d4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2729,7 +2823,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 1b352ebb0b8c781429d2ae76798dfd3e, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 1b352ebb0b8c781429d2ae76798dfd3e, type: 3}
       propertyPath: m_LocalScale.x
@@ -2749,7 +2843,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 1b352ebb0b8c781429d2ae76798dfd3e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.8190255
+      value: 0.67
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 1b352ebb0b8c781429d2ae76798dfd3e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2981,6 +3075,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95d47506ebfce9543b8d3b8c32871b12, type: 3}
+--- !u!114 &1577790201 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4520082540209668292, guid: 95d47506ebfce9543b8d3b8c32871b12, type: 3}
+  m_PrefabInstance: {fileID: 1577790200}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1644701368
 GameObject:
   m_ObjectHideFlags: 0
@@ -3015,7 +3120,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomComplete: 0
   nextScene: 2
-  text: I wonder what mom will think of my clean room!
+  roomManager: {fileID: 1666209813}
+  text: I wonder what mom will think of my clean room! Maybe she'll even let me take
+    my favorite bear with us!
 --- !u!65 &1644701370
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3170,6 +3277,20 @@ MonoBehaviour:
   roomComplete: 0
   objectives:
   - {fileID: 152550476}
+  - {fileID: 2081044319}
+  intro: Today's going to be a fun day. Mom and I are going to the park! Maybe she'll
+    let me bring me favorite bear!
+  dialogueAnim: {fileID: 78917770}
+  playerController: {fileID: 2406493172349435218}
+  dialogueBox: {fileID: 46157711}
+  outroLines:
+  - Alright, I'm ready! Let's go have fun!
+  fade: {fileID: 913785779}
+  nextScene: 2
+  finalClip: {fileID: 8300000, guid: 73d3381c30b74b64e9254aab4786fbcc, type: 3}
+  audioChange: {fileID: 2021508845}
+  outroDuration: 15
+  outroStarted: 0
   door: {fileID: 1644701369}
 --- !u!4 &1666209814
 Transform:
@@ -3682,6 +3803,7 @@ MonoBehaviour:
   description: I can't remember the last time I went and played with this. I wonder
     why I left it lying around.
   inventoryImage: {fileID: 21300000, guid: a21ded20daab55642ac5a1174eb8bf63, type: 3}
+  isObjective: 0
 --- !u!54 &1777681557
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3913,6 +4035,90 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1 &1863997376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1863997378}
+  - component: {fileID: 1863997377}
+  m_Layer: 0
+  m_Name: GrayFloor (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &1863997377
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863997376}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &1863997378
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863997376}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 11.39, y: 0.71, z: -9}
+  m_LocalScale: {x: 9.567294, y: 9.567294, z: 9.567294}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &1911236725
 GameObject:
   m_ObjectHideFlags: 0
@@ -4032,6 +4238,7 @@ MonoBehaviour:
     made out of gold. If they are, wouldn't the people that have them at the fair
     be rich?
   inventoryImage: {fileID: 21300000, guid: 48acbb74183b6c344ac388ad7beebd8d, type: 3}
+  isObjective: 0
 --- !u!65 &1928292478
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4093,7 +4300,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 48acbb74183b6c344ac388ad7beebd8d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4175,6 +4382,7 @@ MonoBehaviour:
   description: I can't go back to bed! I have to make sure I get my room clean before
     my parents get home!
   inventoryImage: {fileID: 21300000, guid: 390006fd667c04643892f67da852f0fa, type: 3}
+  isObjective: 0
 --- !u!212 &2006799428
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4338,6 +4546,7 @@ GameObject:
   - component: {fileID: 2021508842}
   - component: {fileID: 2021508841}
   - component: {fileID: 2021508844}
+  - component: {fileID: 2021508845}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4412,7 +4621,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2021508840}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3826835, y: -0.00000002248122, z: 0.000000009312028, w: 0.92387956}
+  m_LocalRotation: {x: 0.3826835, y: 0.000000022481217, z: -0.000000009312026, w: 0.92387956}
   m_LocalPosition: {x: -0.27, y: 6.527, z: -10.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4453,6 +4662,102 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!82 &2021508845
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021508840}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: fa8b794b360990c4dbb4dabc2b7d1eb4, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2037586302
 GameObject:
   m_ObjectHideFlags: 0
@@ -4578,7 +4883,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -4107886674696930813, guid: cde57de6ec17c31499b0f1dd7a4c2c6e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4640,6 +4945,7 @@ MonoBehaviour:
   description: It's my favorite teddy bear! I do not know what I would do without
     you buddy. I really hope that we get to spend our lives together!
   inventoryImage: {fileID: 21300000, guid: 1241207cff5d4dc4ba077ac4dff9b933, type: 3}
+  isObjective: 1
 --- !u!54 &2081044321
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4868,6 +5174,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 546245251}
     - target: {fileID: 6716403329257280552, guid: 9dac6ef2de8728f48a9ac160f2d3966a, type: 3}
+      propertyPath: roomManager
+      value: 
+      objectReference: {fileID: 1666209813}
+    - target: {fileID: 6716403329257280552, guid: 9dac6ef2de8728f48a9ac160f2d3966a, type: 3}
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 2021508842}
@@ -5049,7 +5359,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 6a558e40fc276ff42b2806971d836db9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5104,3 +5414,5 @@ SceneRoots:
   - {fileID: 1492855268}
   - {fileID: 91837338}
   - {fileID: 1527810235}
+  - {fileID: 686833977}
+  - {fileID: 1863997378}
