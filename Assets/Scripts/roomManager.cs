@@ -140,6 +140,7 @@ public class roomManager : MonoBehaviour
         }
         else
         {
+            playerController.deactivateInteraction();
             StartCoroutine("finale");
         }
 	}
