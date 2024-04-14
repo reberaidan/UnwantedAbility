@@ -1114,8 +1114,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 289634001}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38268343, y: 0.000000015896617, z: -0.000000006584594, w: 0.92387956}
-  m_LocalPosition: {x: 3.62, y: 5.527, z: -9.04}
+  m_LocalRotation: {x: 0.38268346, y: 0.000000016047146, z: -0.000000006646945, w: 0.92387956}
+  m_LocalPosition: {x: 3.62, y: 4.527, z: -8.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2173,7 +2173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 4, z: -4}
+  m_FollowOffset: {x: 0, y: 3, z: -3}
   m_XDamping: 0
   m_YDamping: 0
   m_ZDamping: 0
@@ -3874,6 +3874,8 @@ MonoBehaviour:
   finalClip: {fileID: 8300000, guid: fa8b794b360990c4dbb4dabc2b7d1eb4, type: 3}
   audioChange: {fileID: 2021508845}
   outroDuration: 3
+  outroDurationTwo: 0
+  secondOutroText: 
   outroStarted: 0
   door: {fileID: 1335562246}
 --- !u!4 &1666209814
@@ -5201,8 +5203,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2021508840}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38268343, y: 0.000000015896617, z: -0.000000006584594, w: 0.92387956}
-  m_LocalPosition: {x: 3.62, y: 5.527, z: -9.04}
+  m_LocalRotation: {x: 0.38268346, y: 0.000000016047146, z: -0.000000006646945, w: 0.92387956}
+  m_LocalPosition: {x: 3.62, y: 4.527, z: -8.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

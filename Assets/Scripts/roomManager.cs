@@ -20,7 +20,9 @@ public class roomManager : MonoBehaviour
     [SerializeField] private AudioClip finalClip;
     [SerializeField] private AudioSource audioChange;
     [SerializeField] private float outroDuration;
-    public bool outroStarted = false;
+    [SerializeField] private float outroDurationTwo;
+    [SerializeField] private string secondOutroText;
+	public bool outroStarted = false;
     //private IsometricActionAsset inputActions;
     [SerializeField] private Door door;
 
@@ -158,6 +160,12 @@ public class roomManager : MonoBehaviour
         audioChange.Play();
         audioChange.loop = false;
         yield return new WaitForSeconds(outroDuration);
+        dialogueBox.text = secondOutroText;
+		playerController.putInDialogue();
+		dialogueAnim.SetTrigger("TriggerText");
+		dialogueAnim.SetTrigger("Dialogue");
+
+		yield return new WaitForSeconds(outroDurationTwo);
 		SceneManager.LoadScene(nextScene);
 	}
 }
