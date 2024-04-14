@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using System.Runtime.InteropServices;
 
 public class PlayerController : MonoBehaviour
 {
@@ -133,6 +134,18 @@ public class PlayerController : MonoBehaviour
 						containerDeposit = true;
 						hitScript.changeState();
 						inventoryUI.removeInventory(hitScript.getExpectedSprite());
+					}
+				}
+				else if (hit.collider.gameObject.CompareTag("door"))
+				{
+					var hitScript = hit.collider.gameObject.GetComponent<Door>();
+					if (!hitScript.canLeave())
+					{
+						descriptionBox.text = hitScript.text;
+						descBoxAnim.SetTrigger("TriggerText");
+						descBoxAnim.SetBool("Dialogue", true);
+						inDialogue = true;
+						stopMovement();
 					}
 				}
 			}

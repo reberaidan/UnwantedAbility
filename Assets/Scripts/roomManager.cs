@@ -5,13 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class roomManager : MonoBehaviour
 {
+	public bool roomComplete = false;
+    [SerializeField] private List<GameObject> objectives;
+    public Door door;
+
 	private void Awake()
 	{
         GameObject.Find("Floor").GetComponent<CreateFloor>().generateFloor();
+        door = GameObject.Find("Door").GetComponent<Door>();
 	}
 
-	public bool roomComplete = false;
-    [SerializeField] private List<GameObject> objectives;
     private void finishRoom()
     {
         //SceneManager.LoadScene(0);
@@ -27,16 +30,16 @@ public class roomManager : MonoBehaviour
             }
             if (objectives.Count == 0)
             {
-                roomComplete = true;
+                door.roomComplete = true;
             }
         }
         else if (objectives.Count == 0)
         {
-            roomComplete = true;
+            door.roomComplete = true;
         }
         if (roomComplete)
         {
-            finishRoom();
+            door.roomComplete = true;
         }
     }
 }
