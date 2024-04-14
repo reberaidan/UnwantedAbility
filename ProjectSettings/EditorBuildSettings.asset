@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/College.unity
     guid: 5ddb76818fe0e444185be95644c277e9
+  - enabled: 1
+    path: Assets/Scenes/Ending.unity
+    guid: f22265ddde97fd34781085a9b0935e8b
   m_configObjects: {}

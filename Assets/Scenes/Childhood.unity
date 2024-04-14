@@ -158,6 +158,7 @@ MonoBehaviour:
     ocean a long time ago. I wonder if they like the same food that I do.
   inventoryImage: {fileID: 21300000, guid: 5f9f668faca1a2f4dbb4d072fe45b2d9, type: 3}
   isObjective: 0
+  tunnelVision: 0
 --- !u!65 &7038534
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -382,6 +383,7 @@ MonoBehaviour:
     turtle.
   inventoryImage: {fileID: 21300000, guid: 9107d236c1b5b6844bbf17b91bdafcf0, type: 3}
   isObjective: 0
+  tunnelVision: 0
 --- !u!65 &91837336
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2185,6 +2187,7 @@ MonoBehaviour:
     when you go "Quack Quack!" You make bath time so much more enjoyable!
   inventoryImage: {fileID: 21300000, guid: 07654158e5ea04043972ba43d9b11379, type: 3}
   isObjective: 0
+  tunnelVision: 0
 --- !u!54 &1135980301
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2555,7 +2558,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1346286724}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3826835, y: 0.000000022481217, z: -0.000000009312026, w: 0.92387956}
+  m_LocalRotation: {x: 0.3826835, y: -0.00000002248122, z: 0.000000009312028, w: 0.92387956}
   m_LocalPosition: {x: -0.27, y: 6.527, z: -10.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2721,6 +2724,7 @@ MonoBehaviour:
     they do is float around all day, not caring about anything else around themself.
   inventoryImage: {fileID: 21300000, guid: e0ee526e8261a9340bb779d86104d7d4, type: 3}
   isObjective: 0
+  tunnelVision: 0
 --- !u!65 &1492855266
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3086,6 +3090,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1577790202 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6134221484601973607, guid: 95d47506ebfce9543b8d3b8c32871b12, type: 3}
+  m_PrefabInstance: {fileID: 1577790200}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1644701368
 GameObject:
   m_ObjectHideFlags: 0
@@ -3804,6 +3813,7 @@ MonoBehaviour:
     why I left it lying around.
   inventoryImage: {fileID: 21300000, guid: a21ded20daab55642ac5a1174eb8bf63, type: 3}
   isObjective: 0
+  tunnelVision: 0
 --- !u!54 &1777681557
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4239,6 +4249,7 @@ MonoBehaviour:
     be rich?
   inventoryImage: {fileID: 21300000, guid: 48acbb74183b6c344ac388ad7beebd8d, type: 3}
   isObjective: 0
+  tunnelVision: 0
 --- !u!65 &1928292478
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4383,6 +4394,7 @@ MonoBehaviour:
     my parents get home!
   inventoryImage: {fileID: 21300000, guid: 390006fd667c04643892f67da852f0fa, type: 3}
   isObjective: 0
+  tunnelVision: 0
 --- !u!212 &2006799428
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4621,7 +4633,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2021508840}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3826835, y: 0.000000022481217, z: -0.000000009312026, w: 0.92387956}
+  m_LocalRotation: {x: 0.3826835, y: -0.00000002248122, z: 0.000000009312028, w: 0.92387956}
   m_LocalPosition: {x: -0.27, y: 6.527, z: -10.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4946,6 +4958,7 @@ MonoBehaviour:
     you buddy. I really hope that we get to spend our lives together!
   inventoryImage: {fileID: 21300000, guid: 1241207cff5d4dc4ba077ac4dff9b933, type: 3}
   isObjective: 1
+  tunnelVision: 0
 --- !u!54 &2081044321
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5181,6 +5194,10 @@ PrefabInstance:
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 2021508842}
+    - target: {fileID: 6716403329257280552, guid: 9dac6ef2de8728f48a9ac160f2d3966a, type: 3}
+      propertyPath: tunnelVision
+      value: 
+      objectReference: {fileID: 1577790202}
     - target: {fileID: 6716403329257280552, guid: 9dac6ef2de8728f48a9ac160f2d3966a, type: 3}
       propertyPath: descriptionBox
       value: 

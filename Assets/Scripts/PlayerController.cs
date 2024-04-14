@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] InventoryOverlay inventoryUI;
 	[SerializeField] GameObject pauseMenu;
 	[SerializeField] roomManager roomManager;
+	[SerializeField] Animator tunnelVision;
 
 	private List<GameObject> inventory = new List<GameObject> ();
 
@@ -101,6 +102,11 @@ public class PlayerController : MonoBehaviour
 				{
 					var hitScript = hit.collider.gameObject.GetComponent<itemDescription>();
 					descriptionBox.text = hitScript.getDescription();
+					if(hitScript.getTunnelVision())
+					{
+						tunnelVision.SetTrigger("TunnelVision");
+						tunnelVision.SetBool("Hold", true);
+					}
 					descBoxAnim.SetTrigger("TriggerText");
 					descBoxAnim.SetBool("Dialogue", true);
 					inDialogue = true;
@@ -111,6 +117,11 @@ public class PlayerController : MonoBehaviour
 				{
 					var hitScript = hit.collider.gameObject.GetComponent<itemDescription>();
 					descriptionBox.text = hitScript.getDescription();
+					if (hitScript.getTunnelVision())
+					{
+						tunnelVision.SetTrigger("TunnelVision");
+						tunnelVision.SetBool("Hold", true);
+					}
 					descBoxAnim.SetTrigger("TriggerText");
 					descBoxAnim.SetBool("Dialogue", true);
 					descBoxAnim.SetBool("PickUp", true);
@@ -174,6 +185,7 @@ public class PlayerController : MonoBehaviour
 				if (inDialogue)
 				{
 					descBoxAnim.SetBool("Dialogue", false);
+					tunnelVision.SetBool("Hold", false);
 					inDialogue = false;
 					if (!pickup && !containerDeposit)
 					{
