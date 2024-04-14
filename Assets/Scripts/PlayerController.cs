@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] Animator descBoxAnim;
 	private bool inDialogue = false;
 	[SerializeField] InventoryOverlay inventoryUI;
+	[SerializeField] GameObject pauseMenu;
 
 	private List<GameObject> inventory = new List<GameObject> ();
 
@@ -32,6 +33,8 @@ public class PlayerController : MonoBehaviour
 	private bool pickup;
 	private bool containerDeposit;
 	private Animator playerAnimator;
+
+	public bool paused = false;
 
 	private void Awake()
 	{
@@ -43,6 +46,7 @@ public class PlayerController : MonoBehaviour
 	private void OnEnable()
 	{
 		actionAsset.Player.Interact.started += DoSomething;
+		actionAsset.Player.Pause.started += DoPause;
 		move = actionAsset.Player.Move;
 		actionAsset.Player.Enable();
 	}
@@ -51,14 +55,42 @@ public class PlayerController : MonoBehaviour
 	private void OnDisable()
 	{
 		actionAsset.Player.Interact.started -= DoSomething;
+		actionAsset.Player.Pause.started -= DoPause;
 		actionAsset.Player.Disable();
 	}
+
+	private void DoPause(InputAction.CallbackContext context)
+	{
+		if (paused)
+		{
+			pauseMenu.SetActive(!paused);
+			paused = !paused;
+			actionAsset.Player.Move.Enable();
+			actionAsset.Player.Interact.Enable();
+		}
+		else
+		{
+			pauseMenu.SetActive(!paused);
+			paused = !paused;
+			actionAsset.Player.Move.Disable();
+			actionAsset.Player.Interact.Disable();
+		}
+	}
+
+	public void Unpause()
+	{
+		pauseMenu.SetActive(!paused);
+		paused = !paused;
+		actionAsset.Player.Move.Enable();
+		actionAsset.Player.Interact.Enable();
+	}
+
 	private void DoSomething(InputAction.CallbackContext context)
 	{
-		if (!inDialogue && !pickup && !containerDeposit)
+		if (!inDialogue && !pickup && !containerDeposit && !paused)
 		{
 			ray = new Ray(interactTrigger.position, direction);
-			Debug.DrawRay(interactTrigger.position, direction, Color.green, 60);
+			Debug.DrawRay(interactTrigger.position, direction * maxInteractionDistance, Color.green, 60);
 			if (Physics.Raycast(ray, out RaycastHit hit, maxInteractionDistance, layersToHit))
 			{
 				//generic item description
@@ -107,31 +139,35 @@ public class PlayerController : MonoBehaviour
 		}
 		else
 		{
-			if (inDialogue)
+			if(!paused)
 			{
-				descBoxAnim.SetBool("Dialogue", false);
-				inDialogue = false;
-				if (!pickup && !containerDeposit)
+				if (inDialogue)
 				{
-					startMovement();
+					descBoxAnim.SetBool("Dialogue", false);
+					inDialogue = false;
+					if (!pickup && !containerDeposit)
+					{
+						startMovement();
+					}
 				}
-			}
-			else if(pickup){
-				descBoxAnim.SetBool("PickUp", false);
-				pickup = false;
-				if(!containerDeposit && !inDialogue)
+				else if(pickup){
+					descBoxAnim.SetBool("PickUp", false);
+					pickup = false;
+					if(!containerDeposit && !inDialogue)
+					{
+						startMovement();
+					}
+				}
+				else if (containerDeposit)
 				{
-					startMovement();
+					descBoxAnim.SetBool("DepositItem", false);
+					containerDeposit = false;
+					if(!pickup && !inDialogue)
+					{
+						startMovement();
+					}
 				}
-			}
-			else if (containerDeposit)
-			{
-				descBoxAnim.SetBool("DepositItem", false);
-				containerDeposit = false;
-				if(!pickup && !inDialogue)
-				{
-					startMovement();
-				}
+
 			}
 
 		}
@@ -171,12 +207,18 @@ public class PlayerController : MonoBehaviour
 				if (move.ReadValue<Vector2>().x < 0)
 				{
 					direction = Vector3.left;
-					playerAnimator.SetTrigger("Left");
+					if (!inDialogue)
+					{
+						playerAnimator.SetTrigger("Left");
+					}
 				}
 				else
 				{
 					direction = Vector3.right;
-					playerAnimator.SetTrigger("Right");
+					if (!inDialogue)
+					{
+						playerAnimator.SetTrigger("Right");
+					}
 				}
 			}
 			else
@@ -185,13 +227,18 @@ public class PlayerController : MonoBehaviour
 				{
 					//different because of world space direction
 					direction = Vector3.back;
-					playerAnimator.SetTrigger("Front");
+					if (!inDialogue) { 
+						playerAnimator.SetTrigger("Front");
+					}
 				}
 				else
 				{
 					//different because of world space direction
 					direction = Vector3.forward;
-					playerAnimator.SetTrigger("Back");
+					if (!inDialogue)
+					{
+						playerAnimator.SetTrigger("Back");
+					}
 				}
 			}
 		}

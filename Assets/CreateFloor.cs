@@ -17,7 +17,6 @@ public class CreateFloor : MonoBehaviour
 			for (int j = 0; j < height; j++)
 			{
 				GameObject newFloor = Instantiate(floor, new Vector3(transform.position.x + 1.28f * i, transform.position.y, transform.position.z - 1.28f *j), transform.rotation, gameObject.transform);
-				print(i + " " + j);
 			}
 		}
 	}
