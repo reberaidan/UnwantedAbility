@@ -11,7 +11,7 @@ public class roomManager : MonoBehaviour
 
 	private void Awake()
 	{
-        GameObject.Find("Floor").GetComponent<CreateFloor>().generateFloor();
+        GameObject.Find("StartingFloor").GetComponent<CreateFloor>().generateFloor();
         door = GameObject.Find("Door").GetComponent<Door>();
 	}
 

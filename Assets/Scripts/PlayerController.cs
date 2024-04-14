@@ -127,13 +127,19 @@ public class PlayerController : MonoBehaviour
 					descBoxAnim.SetBool("Dialogue", true);
 					inDialogue = true;
 					stopMovement();
-					if (inventory.Contains(hitScript.getExpected()))
+					var deposits = hitScript.getExpected(inventory);
+					//var UIdeposits = hitScript.getExpectedSprite(inventoryUI.getInventory());
+					foreach (var depositsItem in deposits)
 					{
-						inventory.Remove(hitScript.getExpected());
-						descBoxAnim.SetBool("DepositItem", true);
-						containerDeposit = true;
-						hitScript.changeState();
-						inventoryUI.removeInventory(hitScript.getExpectedSprite());
+						if (inventory.Contains(depositsItem))
+						{
+							inventory.Remove(depositsItem);
+							descBoxAnim.SetBool("DepositItem", true);
+							containerDeposit = true;
+							hitScript.changeState();
+							inventoryUI.removeInventory(depositsItem.GetComponent<SpriteRenderer>().sprite);
+						}
+
 					}
 				}
 				else if (hit.collider.gameObject.CompareTag("door"))

@@ -37,4 +37,9 @@ public class InventoryOverlay : MonoBehaviour
             child.transform.position = new Vector3(transform.position.x + 50 * inventory.IndexOf(child),transform.position.y,transform.position.z);
         }
     }
+
+    public List<GameObject> getInventory()
+    {
+        return inventory;
+    }
 }

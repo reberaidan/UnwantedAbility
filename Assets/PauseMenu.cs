@@ -30,4 +30,9 @@ public class PauseMenu : MonoBehaviour
 #endif
         Application.Quit();
     }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }
